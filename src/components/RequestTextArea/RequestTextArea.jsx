@@ -9,7 +9,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     margin: '10px',
-    border: '1px solid #ccc',
+    border: '1px solid #aaa',
   },
   textArea: {
     width: '400px',
@@ -22,7 +22,7 @@ const styles = {
     padding: '16px',
     '&:focus': {
       outline: 'none',
-      borderColor: '#555',
+      borderColor: '#aaa',
     },
   },
   button: {
