@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import RequestTextArea from './components/RequestTextArea/RequestTextArea'
 import { TextField, Button, Grid } from '@material-ui/core'
+import SpacingGrid from './components/SpacingGrid/SpacingGrid'
 
 const App = () => {
   const [request, setRequest] = useState('')
@@ -62,6 +63,7 @@ const App = () => {
   }
 
   const handleSubmit = async (e) => {
+    console.log('handle submit >>>>>>>>>>>>>>>')
     e.preventDefault()
     getCorrection()
     getRephrase()
@@ -69,17 +71,18 @@ const App = () => {
 }
 
   return (
-    <Grid container spacing={2} xs={12}>
-      <Grid item xs={9}>
+    <Grid container spacing={2} xs={12} >
+      <Grid item xs={9} container>
            <RequestTextArea
             value={request}
             onChange={handleChange}
             onSend={handleSubmit}
             />
       </Grid>
-      <Grid item xs={12}> {correction} </Grid>
-      <Grid item xs={12}> {rephrase} </Grid>
+      <Grid item xs={12} container> {correction} </Grid>
+      <Grid item xs={12} container> {rephrase} </Grid>
     </Grid>
+    // <SpacingGrid />
   )
 }
 
