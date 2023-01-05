@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import './App.css'
+// import './App.css'
 import RequestTextArea from './components/RequestTextArea/RequestTextArea'
-import { TextField, Button, Grid } from '@material-ui/core'
-import SpacingGrid from './components/SpacingGrid/SpacingGrid'
+import { Grid, Container, Grow } from '@material-ui/core'
+import Intro from './components/Intro/Intro'
 
 const App = () => {
   const [request, setRequest] = useState('')
@@ -71,19 +71,38 @@ const App = () => {
 }
 
   return (
-    <Grid container spacing={2} xs={12} >
-      <Grid item xs={9} container>
-           <RequestTextArea
-            value={request}
-            onChange={handleChange}
-            onSend={handleSubmit}
-            />
-      </Grid>
-      <Grid item xs={12} container> {correction} </Grid>
-      <Grid item xs={12} container> {rephrase} </Grid>
-    </Grid>
-    // <SpacingGrid />
+    <Container maxWidth='lg'>
+      <Grow in>
+        <Container>
+          <Grid container spacing={2} xs={12} >
+            <Grid item container xs={8}>
+              <Intro />
+            </Grid>
+            <Grid xs={4} container>
+              <Grid>
+                  <RequestTextArea
+                    value={request}
+                    onChange={handleChange}
+                    onSend={handleSubmit}
+                    />
+              </Grid>
+              <Grid item xs={12} container> {correction} </Grid>
+              <Grid item xs={12} container> {rephrase} </Grid>
+            </Grid>
+           
+
+              
+
+          </Grid>
+        </Container>
+      </Grow>
+      
+
+    </Container>
+
+
   )
+  
 }
 
 export default App
