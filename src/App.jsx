@@ -69,26 +69,14 @@ const App = () => {
 }
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} xs={12}>
       <Grid item xs={9}>
-          {/* <TextField id="standard-basic" label="Product" 
-              value={request} 
-              onChange={(e) => handleChange(e)}
-          /> */}
            <RequestTextArea
             value={request}
             onChange={handleChange}
-            onSave={handleSubmit}
+            onSend={handleSubmit}
             />
       </Grid>
-      
-      {/* <Grid item xs={3}>
-          <Button variant='contained' color='primary' type='submit' fullWidth
-              onClick={ handleSubmit }
-          >
-                  R
-          </Button>
-      </Grid> */}
       <Grid item xs={12}> {correction} </Grid>
       <Grid item xs={12}> {rephrase} </Grid>
     </Grid>
