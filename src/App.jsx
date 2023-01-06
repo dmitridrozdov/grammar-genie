@@ -1,8 +1,8 @@
 import { useState } from 'react'
-// import './App.css'
 import RequestTextArea from './components/RequestTextArea/RequestTextArea'
 import { Grid, Container, Grow } from '@material-ui/core'
 import Intro from './components/Intro/Intro'
+import AppBar from './components/AppBar/AppBar'
 
 const App = () => {
   const [request, setRequest] = useState('')
@@ -72,6 +72,9 @@ const App = () => {
 
   return (
     <Container maxWidth='lg'>
+      
+      <AppBar />
+
       <Grow in>
         <Container>
           <Grid container spacing={2} xs={12} >
