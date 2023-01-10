@@ -78,10 +78,10 @@ const App = () => {
       <Grow in>
         <Container>
           <Grid container spacing={2} xs={12} >
-            <Grid item container xs={4}>
+            {/* <Grid item container xs={4}>
               <Intro />
-            </Grid>
-            <Grid xs={8} container>
+            </Grid> */}
+            <Grid xs={12} container>
               <Grid item xs={12}>
                   <RequestTextArea
                     value={request}
