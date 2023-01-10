@@ -4,7 +4,7 @@ import useStyles from './styles'
 
 
 const Intro = () => {
-const classes = useStyles()
+  const classes = useStyles()
   return (
     <>
         <Typography className={classes.headerText}>
