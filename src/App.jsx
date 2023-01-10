@@ -72,17 +72,17 @@ const App = () => {
 
   return (
     <Container maxWidth='lg'>
-      
+
       <AppBar />
 
       <Grow in>
         <Container>
           <Grid container spacing={2} xs={12} >
-            <Grid item container xs={8}>
+            <Grid item container xs={4}>
               <Intro />
             </Grid>
-            <Grid xs={4} container>
-              <Grid>
+            <Grid xs={8} container>
+              <Grid item xs={12}>
                   <RequestTextArea
                     value={request}
                     onChange={handleChange}
