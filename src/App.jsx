@@ -70,6 +70,11 @@ const App = () => {
     
 }
 
+const handleClear = (e) => {
+  console.log('handle clear @@@@@@@')
+  setRequest('')
+}
+
   return (
     <Container maxWidth='lg'>
 
@@ -83,6 +88,7 @@ const App = () => {
                     value={request}
                     onChange={handleChange}
                     onSend={handleSubmit}
+                    onClear={handleClear}
                     />
               </Grid>
               <Grid item xs={12}> 
