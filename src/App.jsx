@@ -3,8 +3,12 @@ import RequestTextArea from './components/RequestTextArea/RequestTextArea'
 import { Grid, Container, Grow } from '@material-ui/core'
 import Intro from './components/Intro/Intro'
 import AppBar from './components/AppBar/AppBar'
+// import useStyles from './styles'
+
+    
 
 const App = () => {
+  // const classes = useStyles()
   const [request, setRequest] = useState('')
   const [correction, setCorrection] = useState('')
   const [rephrase, setRephrase] = useState('')
@@ -77,10 +81,6 @@ const App = () => {
 
       <Grow in>
         <Container>
-          <Grid container spacing={2} xs={12} >
-            {/* <Grid item container xs={4}>
-              <Intro />
-            </Grid> */}
             <Grid xs={12} container>
               <Grid item xs={12}>
                   <RequestTextArea
@@ -92,11 +92,6 @@ const App = () => {
               <Grid item xs={12} container> {correction} </Grid>
               <Grid item xs={12} container> {rephrase} </Grid>
             </Grid>
-           
-
-              
-
-          </Grid>
         </Container>
       </Grow>
       
