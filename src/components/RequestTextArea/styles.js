@@ -25,10 +25,10 @@ export default makeStyles((theme) => ({
           borderColor: '#326c99',
         },
       },
-      button: {
-        width: '80px',
-        height: '40px',
-      },
+      // button: {
+      //   width: '80px',
+      //   height: '40px',
+      // },
 
       inputTextStyle: {
         disableUnderline: true,
