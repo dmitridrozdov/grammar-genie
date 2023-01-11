@@ -8,15 +8,16 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         margin: '10px',
-        border: '1px solid #326c99',
+        // border: '1px solid #326c99',
       },
       textArea: {
         width: '100%',
         height: '20px',
-        fontSize: '16px',
-        lineHeight: '24px',
-        fontFamily: 'Roboto',
-        borderRadius: '4px',
+        // fontSize: '16px',
+        // lineHeight: '24px',
+        // fontFamily: 'Kanit',
+        borderRadius: '9px',
+        // color: '#326c99',
         
         padding: '16px',
         '&:focus': {
@@ -27,6 +28,12 @@ export default makeStyles((theme) => ({
       button: {
         width: '80px',
         height: '40px',
+      },
+
+      inputTextStyle: {
+        disableUnderline: true,
+        fontFamily: 'Kanit',
+        fontSize: '14px',
       },
 
 }));
