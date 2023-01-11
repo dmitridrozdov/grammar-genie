@@ -11,9 +11,12 @@ const RequestTextArea = ({ value, onChange, onSend }) => {
                 value={value}
                 onChange={onChange}
                 className={classes.textArea}
-                InputProps={{
-                    disableUnderline: true,
-                }}
+                InputProps={{ className: classes.inputTextStyle }}
+                // InputProps={{
+                //     disableUnderline: true,
+                //     fontFamily: 'Kanit',
+                //     fontSize: '14px',
+                // }}
             />
             <Button variant="contained" onClick={onSend} className={classes.button}>
                 Send
