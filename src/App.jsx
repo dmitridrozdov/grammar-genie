@@ -1,14 +1,10 @@
 import { useState } from 'react'
 import RequestTextArea from './components/RequestTextArea/RequestTextArea'
 import { Grid, Container, Grow } from '@material-ui/core'
-import Intro from './components/Intro/Intro'
 import AppBar from './components/AppBar/AppBar'
-// import useStyles from './styles'
-
-    
+import CorrectResponse from './components/CorrectResponse/CorrectResponse'
 
 const App = () => {
-  // const classes = useStyles()
   const [request, setRequest] = useState('')
   const [correction, setCorrection] = useState('')
   const [rephrase, setRephrase] = useState('')
@@ -89,8 +85,10 @@ const App = () => {
                     onSend={handleSubmit}
                     />
               </Grid>
-              <Grid item xs={12} container> {correction} </Grid>
-              <Grid item xs={12} container> {rephrase} </Grid>
+              <Grid item xs={12}> 
+                {correction === '' ? <></> : <CorrectResponse text={correction} />}
+              </Grid>
+              <Grid item xs={12}> {rephrase} </Grid>
             </Grid>
         </Container>
       </Grow>
