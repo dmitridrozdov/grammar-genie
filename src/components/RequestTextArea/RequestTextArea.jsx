@@ -1,10 +1,19 @@
-import React from 'react'
-import { Button, TextField } from '@material-ui/core'
+import React, { useState } from 'react'
+import { IconButton, TextField } from '@material-ui/core'
+import SendIcon from '@mui/icons-material/Send';
+import ClearIcon from '@mui/icons-material/Clear';
 import useStyles from './styles'
 
 
-const RequestTextArea = ({ value, onChange, onSend }) => {
+const RequestTextArea = ({ value, onChange, onSend, onClear }) => {
     const classes = useStyles()
+    const [valueLocal, setValueLocal] = useState('')
+
+    // const clear = () => {
+    //     console.log('clear')
+    //     setValueLocal('')
+    // }
+
     return (
         <div className={classes.container}>
             <TextField
@@ -18,9 +27,13 @@ const RequestTextArea = ({ value, onChange, onSend }) => {
                 //     fontSize: '14px',
                 // }}
             />
-            <Button variant="contained" onClick={onSend} className={classes.button}>
-                Send
-            </Button>
+
+            <IconButton  onClick={onSend} size="small">
+                <SendIcon />
+            </IconButton>
+            <IconButton  onClick={onClear} size="small">
+                <ClearIcon />
+            </IconButton>
         </div>
     )
 }
