@@ -22,10 +22,10 @@ const RequestTextArea = ({ value, onChange, onSend, onClear }) => {
                 // }}
             />
 
-            <IconButton  onClick={onSend} size="small">
+            <IconButton  onClick={onSend} className={classes.button}>
                 <SendIcon />
             </IconButton>
-            <IconButton  onClick={onClear} size="small">
+            <IconButton  onClick={onClear} className={classes.button}>
                 <ClearIcon />
             </IconButton>
         </div>
