@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import useStyles from './styles'
-import { Button } from '@material-ui/core'
+import { Button, IconButton } from '@material-ui/core'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import DoneIcon from '@mui/icons-material/Done'
 
 
 const CorrectResponse = ({ text }) => {
   const classes = useStyles()
-  const [copySuccess, setCopySuccess] = useState('Copy')
+  const [copySuccess, setCopySuccess] = useState(<ContentCopyIcon />)
 
   const copyToClipBoard = async textToCopy => {
     try {
       await navigator.clipboard.writeText(textToCopy);
-      setCopySuccess('Copied!');
-      setTimeout(() => {setCopySuccess('Copy')}, 3000); // Reset after 3 seconds
+      setCopySuccess(<DoneIcon />);
+      setTimeout(() => {setCopySuccess(<ContentCopyIcon />)}, 3000); // Reset after 3 seconds
     } catch (err) {
       setCopySuccess('Failed to copy!');
     }
@@ -20,7 +22,9 @@ const CorrectResponse = ({ text }) => {
   return (
     <div className={classes.box}>
       <div className={classes.copyButtonDiv}>
-        <Button className={classes.copyButton} onClick={() => copyToClipBoard(text)}>{copySuccess}</Button>
+        <IconButton onClick={() => copyToClipBoard(text)} className={classes.copyButton}>
+          {copySuccess}
+        </IconButton>
       </div>
       <div className={classes.text}>{text}</div>
     </div>
