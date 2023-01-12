@@ -3,6 +3,7 @@ import RequestTextArea from './components/RequestTextArea/RequestTextArea'
 import { Grid, Container, Grow } from '@material-ui/core'
 import AppBar from './components/AppBar/AppBar'
 import CorrectResponse from './components/CorrectResponse/CorrectResponse'
+import RephraseComponent from './components/RephraseComponent/RephraseComponent'
 
 const App = () => {
   const [request, setRequest] = useState('')
@@ -70,10 +71,9 @@ const App = () => {
     
 }
 
-const handleClear = (e) => {
-  console.log('handle clear @@@@@@@')
-  setRequest('')
-}
+  const handleClear = (e) => {
+    setRequest('')
+  }
 
   return (
     <Container maxWidth='lg'>
@@ -94,7 +94,9 @@ const handleClear = (e) => {
               <Grid item xs={12}> 
                 {correction === '' ? <></> : <CorrectResponse text={correction} />}
               </Grid>
-              <Grid item xs={12}> {rephrase} </Grid>
+              <Grid item xs={12}>
+                {rephrase === '' ? <></> : <RephraseComponent text={rephrase} />}
+              </Grid>
             </Grid>
         </Container>
       </Grow>
