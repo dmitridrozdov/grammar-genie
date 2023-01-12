@@ -5,18 +5,17 @@ import { Grid } from '@material-ui/core';
 const RephraseComponent = ({ text }) => {
 
     const parseString = str => {
-        const arr = str.split('. ');
-        return arr.map(item => item.replace(/[0-9.]/g, '').trim());
+        return str.split(/1\.|2\.|3\./).filter(item => item !== '').map(item => item.trim())
     }
     
     console.log(text)
-    const array = parseString(text).filter(item => item !== '')
+    const array = parseString(text)
     console.log(array)
 
     return (
         <>
             {array.map(rephrase => (
-                <Grid xs={12}> 
+                <Grid item xs={12}> 
                     <CorrectResponse key={rephrase} text={rephrase} />
                 </Grid>
             ))}
