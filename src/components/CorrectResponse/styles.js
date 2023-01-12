@@ -18,6 +18,7 @@ export default makeStyles((theme) => ({
 
     copyButton: {
         fontFamily: 'Kanit',
+        fontSize: '12px',
     },
     
     copyButtonDiv: {
