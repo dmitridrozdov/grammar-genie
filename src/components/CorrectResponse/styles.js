@@ -15,11 +15,12 @@ export default makeStyles((theme) => ({
         fontSize: '16px',
         fontFamily: 'Kanit',
         marginLeft: '20px',
+        color: '#326c99',
     },
 
     copyButton: {
-        fontFamily: 'Kanit',
         fontSize: '12px',
+        color: '#326c99'
     },
     
     copyButtonDiv: {
