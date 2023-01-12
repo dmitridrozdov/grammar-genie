@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import RequestTextArea from './components/RequestTextArea/RequestTextArea'
-import { Grid, Container, Grow } from '@material-ui/core'
+import { Grid, Container, Grow, Typography } from '@material-ui/core'
 import AppBar from './components/AppBar/AppBar'
 import CorrectResponse from './components/CorrectResponse/CorrectResponse'
 import RephraseComponent from './components/RephraseComponent/RephraseComponent'
@@ -94,7 +94,8 @@ const App = () => {
               <Grid item xs={12}> 
                 {correction === '' ? <></> : <CorrectResponse text={correction} />}
               </Grid>
-              <Grid item xs={12}>
+              <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99' }}>Varieties</Typography>
+              <Grid container spacing={1} xs={12}>
                 {rephrase === '' ? <></> : <RephraseComponent text={rephrase} />}
               </Grid>
             </Grid>
