@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { IconButton, TextField } from '@material-ui/core'
 import SendIcon from '@mui/icons-material/Send';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -7,12 +7,6 @@ import useStyles from './styles'
 
 const RequestTextArea = ({ value, onChange, onSend, onClear }) => {
     const classes = useStyles()
-    const [valueLocal, setValueLocal] = useState('')
-
-    // const clear = () => {
-    //     console.log('clear')
-    //     setValueLocal('')
-    // }
 
     return (
         <div className={classes.container}>
