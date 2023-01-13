@@ -94,7 +94,7 @@ const App = () => {
               <Grid item xs={12}> 
                 {correction === '' ? <></> : <CorrectResponse text={correction} />}
               </Grid>
-              <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99' }}>Varieties</Typography>
+              {rephrase === '' ? <></> : <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99' }}>Varieties</Typography>}
               <Grid container spacing={1} xs={12}>
                 {rephrase === '' ? <></> : <RephraseComponent text={rephrase} />}
               </Grid>
