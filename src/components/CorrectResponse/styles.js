@@ -9,10 +9,11 @@ export default makeStyles((theme) => ({
         paddingLeft: '5px',
         paddingRight: '5px',
         boxShadow: '0px 2px 1px -1px rgba(0, 0, 0, 0.05), 0px 1px 1px 0px rgba(0, 0, 0, 0.04), 0px 1px 3px 0px rgba(0, 0, 0, 0.03)',
+        background: '#f7fafc'
     },
 
     text: {
-        fontSize: '16px',
+        fontSize: '14px',
         fontFamily: 'Kanit',
         marginLeft: '20px',
         color: '#326c99',
