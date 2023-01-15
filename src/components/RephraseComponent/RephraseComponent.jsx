@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 const RephraseComponent = ({ text }) => {
 
     const parseString = str => {
-        return str.split(/1\.|2\.|3\./).filter(item => item !== '').map(item => item.trim())
+        return str.split(/1\.|2\.|3\./).map(item => item.trim()).filter(item => item !== '')
     }
     
     console.log(text)
