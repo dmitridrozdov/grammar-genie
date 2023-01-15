@@ -15,7 +15,25 @@ const App = () => {
     setRequest(e.target.value)
   }
 
+  let loadInterval
+
+  const loader = () => {
+    loadInterval = setInterval(() => {
+        // Update the text content of the loading indicator
+        let waitDots = correction + '.'
+        setCorrection(waitDots)
+
+        // If the loading indicator has reached three dots, reset it
+        if (correction === '....') {
+          setCorrection('')
+        }
+    }, 300);
+  }
+  
   const getCorrection = async() => {
+    // loader()
+    setCorrection('...')
+    setRephrase('1. ... 2. ... 3. ...')
     const verifyRequest = 'correct English sentence:"' + request + '"'
 
     const response = await fetch('https://codex-ztt6.onrender.com/', {
@@ -27,6 +45,8 @@ const App = () => {
             prompt: verifyRequest
         })
     })
+
+    // clearLoader(loadInterval)
 
     if (response.ok) {
       const data = await response.json();
