@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     },
 
     headerText: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'Raleway',
         marginLeft: '10px',
         fontSize: '24px',
         color: '#326c99'
