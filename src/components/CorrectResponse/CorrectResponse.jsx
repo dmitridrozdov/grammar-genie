@@ -5,9 +5,14 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import DoneIcon from '@mui/icons-material/Done'
 
 
-const CorrectResponse = ({ text }) => {
+const CorrectResponse = ({ response }) => {
+  const [text, setText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
   const classes = useStyles()
   const [copySuccess, setCopySuccess] = useState(<ContentCopyIcon />)
+
+  const deleteSpecialCharsStartFinish = response.replace(/^"|"$/g,'')
 
   const copyToClipBoard = async textToCopy => {
     try {
@@ -20,18 +25,16 @@ const CorrectResponse = ({ text }) => {
   }
 
   return (
-    <Fade in={true}>
+    // <Fade in={true}  timeout={ 2000 }>
       <div className={classes.box}>
-        
           <div className={classes.copyButtonDiv}>
-            <IconButton onClick={() => copyToClipBoard(text)} className={classes.copyButton}>
+            <IconButton onClick={() => copyToClipBoard(response)} className={classes.copyButton}>
               {copySuccess}
             </IconButton>
           </div>
-          <div className={classes.text}>{text}</div>
-        
+          <div className={classes.text}>{deleteSpecialCharsStartFinish}</div>
       </div>
-    </Fade>
+    // </Fade>
   )
 }
 
