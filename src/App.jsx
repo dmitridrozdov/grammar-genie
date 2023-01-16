@@ -93,6 +93,8 @@ const App = () => {
 
   const handleClear = (e) => {
     setRequest('')
+    setCorrection('')
+    setRephrase('')
   }
 
   return (
@@ -102,7 +104,7 @@ const App = () => {
 
       <Grow in>
         <Container>
-            <Grid xs={12} container>
+            <Grid container>
               <Grid item xs={12}>
                   <RequestTextArea
                     value={request}
@@ -112,11 +114,11 @@ const App = () => {
                     />
               </Grid>
               <Grid item xs={12}> 
-                {correction === '' ? <></> : <CorrectResponse text={correction} />}
+                {correction === '' ? <></> : <CorrectResponse response={correction} />}
               </Grid>
               {rephrase === '' ? <></> : <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99' }}>Varieties</Typography>}
-              <Grid container spacing={1} xs={12}>
-                {rephrase === '' ? <></> : <RephraseComponent text={rephrase} />}
+              <Grid container spacing={1}>
+                {rephrase === '' ? <></> : <RephraseComponent response={rephrase} />}
               </Grid>
             </Grid>
         </Container>
