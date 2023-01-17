@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useStyles from './styles'
 import { Fade, IconButton } from '@material-ui/core'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
@@ -6,13 +6,30 @@ import DoneIcon from '@mui/icons-material/Done'
 
 
 const CorrectResponse = ({ response }) => {
-  const [text, setText] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
+  // const [text, setText] = useState('')
+  // const [isTyping, setIsTyping] = useState(true)
 
   const classes = useStyles()
   const [copySuccess, setCopySuccess] = useState(<ContentCopyIcon />)
 
-  const deleteSpecialCharsStartFinish = response.replace(/^"|"$/g,'')
+  // const deleteSpecialCharsStartFinish = response.replace(/^"|"$/g,'')
+
+  // useEffect(() => {
+  //   if (isTyping) {
+  //     let i = 0;
+  //     const interval = setInterval(() => {
+  //       setText(deleteSpecialCharsStartFinish.slice(0, i));
+  //       i++;
+  //       if (i > deleteSpecialCharsStartFinish.length) {
+  //         clearInterval(interval);
+  //         setIsTyping(false);
+  //       }
+  //     }, 50);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [isTyping, deleteSpecialCharsStartFinish]);
+
+  
 
   const copyToClipBoard = async textToCopy => {
     try {
@@ -32,7 +49,7 @@ const CorrectResponse = ({ response }) => {
               {copySuccess}
             </IconButton>
           </div>
-          <div className={classes.text}>{deleteSpecialCharsStartFinish}</div>
+          <div className={classes.text}>{response}</div>
       </div>
     // </Fade>
   )
