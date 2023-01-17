@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RequestTextArea from './components/RequestTextArea/RequestTextArea'
 import { Grid, Container, Grow, Typography } from '@material-ui/core'
 import AppBar from './components/AppBar/AppBar'
@@ -10,30 +10,51 @@ const App = () => {
   const [correction, setCorrection] = useState('')
   const [rephrase, setRephrase] = useState('')
 
+  const [text, setText] = useState('')
+  const [isTyping, setIsTyping] = useState(true)
+
+  const [textRephrase, setTextRephrase] = useState('')
+  const [isRephraseTyping, setIsRephraseTyping] = useState(true)
+
   const handleChange = (e) => {
     e.preventDefault()
     setRequest(e.target.value)
   }
 
-  let loadInterval
-
-  const loader = () => {
-    loadInterval = setInterval(() => {
-        // Update the text content of the loading indicator
-        let waitDots = correction + '.'
-        setCorrection(waitDots)
-
-        // If the loading indicator has reached three dots, reset it
-        if (correction === '....') {
-          setCorrection('')
+  useEffect(() => {
+    if (isTyping) {
+      let i = 0;
+      const interval = setInterval(() => {
+        setText(correction.slice(0, i));
+        i++;
+        if (i > correction.length) {
+          clearInterval(interval)
+          setIsTyping(false)
         }
-    }, 300);
-  }
+      }, 20);
+      return () => clearInterval(interval)
+    }
+  }, [isTyping, correction])
+
+
+  useEffect(() => {
+    if (isRephraseTyping) {
+      let i = 0;
+      const interval = setInterval(() => {
+        setTextRephrase(rephrase.slice(0, i));
+        i++;
+        if (i > rephrase.length) {
+          clearInterval(interval)
+          setIsRephraseTyping(false)
+        }
+      }, 10);
+      return () => clearInterval(interval)
+    }
+  }, [isRephraseTyping, rephrase])
   
   const getCorrection = async() => {
-    // loader()
-    setCorrection('...')
-    setRephrase('1. ... 2. ... 3. ...')
+    setText('...')
+    setTextRephrase('1. ...')
     const verifyRequest = 'correct English sentence:"' + request + '"'
 
     const response = await fetch('https://codex-ztt6.onrender.com/', {
@@ -46,15 +67,14 @@ const App = () => {
         })
     })
 
-    // clearLoader(loadInterval)
-
     if (response.ok) {
       const data = await response.json();
       const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
-      setCorrection(parsedData)
+      setCorrection(parsedData.replace(/^"|"$/g,''))
+      setIsTyping(true)
     } else {
       const err = await response.text()
-      setCorrection("Something went wrong")
+      setCorrection('Something went wrong')
       alert(err)
     }
   }
@@ -76,6 +96,7 @@ const App = () => {
       const data = await response.json();
       const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
       setRephrase(parsedData)
+      setIsRephraseTyping(true)
     } else {
       const err = await response.text()
       setRephrase("Something went wrong")
@@ -95,6 +116,8 @@ const App = () => {
     setRequest('')
     setCorrection('')
     setRephrase('')
+    setText('')
+    setTextRephrase('')
   }
 
   return (
@@ -114,11 +137,11 @@ const App = () => {
                     />
               </Grid>
               <Grid item xs={12}> 
-                {correction === '' ? <></> : <CorrectResponse response={correction} />}
+                {text === '' ? <></> : <CorrectResponse response={text} />}
               </Grid>
-              {rephrase === '' ? <></> : <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99' }}>Varieties</Typography>}
+              {textRephrase === '' ? <></> : <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99' }}>Varieties</Typography>}
               <Grid container spacing={1}>
-                {rephrase === '' ? <></> : <RephraseComponent response={rephrase} />}
+                {textRephrase === '' ? <></> : <RephraseComponent response={textRephrase} />}
               </Grid>
             </Grid>
         </Container>
