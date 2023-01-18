@@ -36,4 +36,16 @@ export default makeStyles((theme) => ({
         fontSize: '14px',
       },
 
+      customUnderline: {
+        '&:before': {
+          borderBottom: `1px solid #9ac9ed`,
+        },
+        '&:hover:not(.Mui-disabled):before': {
+          borderBottom: `1px solid #326c99`,
+        },
+        '&:after': {
+          borderBottom: `1px solid #326c99`,
+        },
+      },
+
 }));
