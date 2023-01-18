@@ -14,12 +14,18 @@ const RequestTextArea = ({ value, onChange, onSend, onClear }) => {
                 value={value}
                 onChange={onChange}
                 className={classes.textArea}
-                InputProps={{ className: classes.inputTextStyle }}
+                // InputProps={{ className: classes.inputTextStyle }}
                 // InputProps={{
                 //     disableUnderline: true,
                 //     fontFamily: 'Kanit',
                 //     fontSize: '14px',
                 // }}
+                InputProps={{
+                    classes: {
+                      underline: classes.customUnderline,
+                    },
+                    className: classes.inputTextStyle,
+                  }}
             />
 
             <IconButton  onClick={onSend} className={classes.button}>
