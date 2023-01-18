@@ -136,10 +136,15 @@ const App = () => {
                     onClear={handleClear}
                     />
               </Grid>
+              {text === '' ? <></> : <Typography style={{ marginTop: '10px', fontFamily: 'Kanit', color: '#326c99', fontSize: '12px' }}>
+                Verified
+              </Typography>}
               <Grid item xs={12}> 
                 {text === '' ? <></> : <CorrectResponse response={text} />}
               </Grid>
-              {textRephrase === '' ? <></> : <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99' }}>Varieties</Typography>}
+              {textRephrase === '' ? <></> : <Typography style={{ marginTop: '30px', fontFamily: 'Kanit', color: '#326c99', fontSize: '12px' }}>
+                Varieties
+              </Typography>}
               <Grid container spacing={1}>
                 {textRephrase === '' ? <></> : <RephraseComponent response={textRephrase} />}
               </Grid>
