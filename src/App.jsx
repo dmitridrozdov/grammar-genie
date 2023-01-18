@@ -137,7 +137,7 @@ const App = () => {
                     />
               </Grid>
               {text === '' ? <></> : <Typography style={{ marginTop: '10px', fontFamily: 'Kanit', color: '#326c99', fontSize: '12px' }}>
-                Verified
+                Correct
               </Typography>}
               <Grid item xs={12}> 
                 {text === '' ? <></> : <CorrectResponse response={text} />}
