@@ -7,7 +7,7 @@ const AppBar = () => {
   return (
     <Grid item container xs={12}>
         <Toolbar>
-          <img alt='Grammar Genie' src='/public/logo.png' width='50' height='50' className={classes.logo}/>
+          <img alt='Grammar Genie' src='/logo.png' width='50' height='50' className={classes.logo}/>
           <Typography className={classes.headerText}>Grammar Genie</Typography>
         </Toolbar>
     </Grid>      
