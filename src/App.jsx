@@ -120,8 +120,19 @@ const App = () => {
     setTextRephrase('')
   }
 
+  const GptContainer = styled.div`
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      max-width: 540px;
+    }`;
+
   return (
-    <Container maxWidth='lg'>
+    // <Container maxWidth='lg'>
+    <GptContainer>
+
+    
 
       <AppBar />
 
@@ -153,7 +164,8 @@ const App = () => {
       </Grow>
       
 
-    </Container>
+      </GptContainer>
+      //</Container>
 
 
   )
