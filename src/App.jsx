@@ -4,7 +4,6 @@ import { Grid, Container, Grow, Typography } from '@material-ui/core'
 import AppBar from './components/AppBar/AppBar'
 import CorrectResponse from './components/CorrectResponse/CorrectResponse'
 import RephraseComponent from './components/RephraseComponent/RephraseComponent'
-import styled from 'styled-components'
 
 const App = () => {
   const [request, setRequest] = useState('')
@@ -120,20 +119,9 @@ const App = () => {
     setText('')
     setTextRephrase('')
   }
-
-  const GptContainer = styled.div`
-    max-width: 1200px;
-    margin: 0 auto;
-
-    @media (max-width: 768px) {
-      max-width: 540px;
-    }`;
-
+  
   return (
-    // <Container maxWidth='lg'>
-    <GptContainer>
-
-    
+    <Container maxWidth='lg'>
 
       <AppBar />
 
@@ -165,8 +153,7 @@ const App = () => {
       </Grow>
       
 
-      </GptContainer>
-      //</Container>
+    </Container>
 
 
   )
