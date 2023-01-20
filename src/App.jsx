@@ -4,6 +4,7 @@ import { Grid, Container, Grow, Typography } from '@material-ui/core'
 import AppBar from './components/AppBar/AppBar'
 import CorrectResponse from './components/CorrectResponse/CorrectResponse'
 import RephraseComponent from './components/RephraseComponent/RephraseComponent'
+import styled from 'styled-components'
 
 const App = () => {
   const [request, setRequest] = useState('')
